@@ -34,8 +34,9 @@ class Student(models.Model):
             return True
         else:
             return False
-              
+
     #to display it with another name
     is_adult.short_description = 'Graduated Student'
-
+    #to display true and false to icons
+    is_adult.boolean = True 
         
