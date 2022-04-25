@@ -9,12 +9,14 @@
 </head>
 <body>
     <h1 class="text-center text-success m-5">{{student.fname}} Details</h1>
-    <div class="alert alert-success text-center m-5" role="alert">
+    <hr/>
+    <div class="alert alert-success text-center m-5 p-5" role="alert">
         <div class="card m-auto" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">Name: {{student.fname}} {{student.lname}}</h5>
               <h6 class="card-subtitle mb-2 text-muted">Age: {{student.age}}</h6>
               <p class="card-text">{% if student.is_adult %} Graduated {% else %} Not Graduated {% endif %}</p>
+              <p class="card-text">{{student.student_track}}</p>
             </div>
           </div>
     </div>

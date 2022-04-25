@@ -16,6 +16,7 @@
               <th scope="col">Last Name</th>
               <th scope="col">Age</th>
               <th scope="col">Graduated</th>
+              <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -35,6 +36,9 @@
                     </svg>
                   {% endif %}
 
+              </td>
+              <td>
+                <a class="btn btn-info" href="{% url 'show' std.id %}">Show</a>
               </td>
             </tr>
             {% endfor %}
