@@ -11,6 +11,7 @@ def home(request):
     context = { 'student_list': all_students }
     return render(request, 'djapp/home.html', context )
 
-def show(request):
-    st = Student.objects.all()[0].fname
-    return HttpResponse(st)
+def show(request, std_id):
+    student = Student.objects.get(id = std_id)
+    context = {'student': student}
+    return render(request, 'djapp/show.html', context)
