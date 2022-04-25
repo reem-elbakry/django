@@ -39,6 +39,8 @@
               </td>
               <td>
                 <a class="btn btn-info" href="{% url 'show' std.id %}">Show</a>
+                <a class="btn btn-danger" href="{% url 'delete' std.id %}">Delete</a>
+
               </td>
             </tr>
             {% endfor %}

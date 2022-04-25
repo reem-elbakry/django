@@ -1,5 +1,5 @@
 from xml.parsers.expat import model
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Student, Track
 
@@ -15,3 +15,9 @@ def show(request, std_id):
     student = Student.objects.get(id = std_id)
     context = {'student': student}
     return render(request, 'djapp/show.html', context)
+
+def delete(request, std_id):
+    Student.objects.get(id = std_id).delete()
+    return redirect('home')
+
+    
