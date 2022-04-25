@@ -12,6 +12,8 @@ class CustomStudent(admin.ModelAdmin):
         ['Scholarship information', {'fields': ['student_track']}]
     )
 
+    list_display = ('fname', 'lname', 'age', 'student_track')
+
 #custom track == not to add track without students 
 #need to inject student form to track form
 #make student form to be injectable ... inline and use it in track form
