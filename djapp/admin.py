@@ -16,6 +16,7 @@ class CustomStudent(admin.ModelAdmin):
     #'student_track__track_name'
     #student_track (obj from Track) want to search by track_name
     search_fields = ('fname', 'lname', 'age', 'student_track__track_name')
+    list_filter = ('age', 'student_track__track_name')
 
 #custom track == not to add track without students 
 #need to inject student form to track form
