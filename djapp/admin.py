@@ -12,7 +12,7 @@ class CustomStudent(admin.ModelAdmin):
         ['Scholarship information', {'fields': ['student_track']}]
     )
 
-    list_display = ('fname', 'lname', 'age', 'student_track')
+    list_display = ('fname', 'lname', 'age', 'student_track', 'is_adult')
 
 #custom track == not to add track without students 
 #need to inject student form to track form

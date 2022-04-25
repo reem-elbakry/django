@@ -27,3 +27,15 @@ class Student(models.Model):
     def __str__(self):
         #override __str__()
         return self.fname + " " + self.lname
+    
+    #for derived col   ... then add name func (model class attr) to the display list in adim.py
+    def is_adult(self):
+        if self.age > 15:
+            return True
+        else:
+            return False
+              
+    #to display it with another name
+    is_adult.short_description = 'Graduated Student'
+
+        
