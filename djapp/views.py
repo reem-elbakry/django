@@ -1,3 +1,4 @@
+from multiprocessing import context
 from xml.parsers.expat import model
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -33,6 +34,21 @@ def createStudent(request):
 
     context = {'form' : form}
     return render(request, 'djapp/create.html', context)
+
+def editStudent(request, std_id):
+    student = Student.objects.get(id=std_id)
+    form = StudentForm(instance=student)
+    if request.method == 'POST':
+        form = StudentForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+
+            
+    context = {'form': form}
+    return render(request, 'djapp/create.html', context)
+
+
 
 
 
