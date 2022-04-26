@@ -2,6 +2,7 @@ from xml.parsers.expat import model
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Student, Track
+from .forms import StudentForm
 
 # Create your views here.
 
@@ -19,5 +20,20 @@ def show(request, std_id):
 def delete(request, std_id):
     Student.objects.get(id = std_id).delete()
     return redirect('home')
+
+def createStudent(request):
+    #create empty student obj form 
+    form = StudentForm()
+    if request.method == 'POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+
+
+    context = {'form' : form}
+    return render(request, 'djapp/create.html', context)
+
+
 
     
