@@ -10,4 +10,14 @@ urlpatterns = [
 
 
 
+    #rest_framework path
+
+    path('api-all/', views.api_all_student, name='api-all'),
+    path('api-one/<std_id>', views.api_one_student, name='api-one'),
+    path('api-add/', views.api_add_student, name='api-add'),
+
+
+
+
+
 ]

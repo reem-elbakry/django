@@ -5,6 +5,35 @@ from django.http import HttpResponse
 from .models import Student, Track
 from .forms import StudentForm
 
+#rest_framework imports here.
+
+from .serializers import StudentSerializer
+
+#Response take oj return in api response
+from rest_framework.response import Response
+#determine view func hit by get or post method
+from rest_framework.decorators import api_view
+
+
+
+
+#rest_framework views here.
+
+@api_view(['GET'])
+def api_all_student(request):
+    all_st = Student.objects.all()
+    #serialize data  #many == list of objs of model ..loop 
+    st_ser = StudentSerializer(all_st, many=True)
+    return Response(st_ser.data)
+
+
+@api_view(['GET'])
+def api_one_student(request, std_id):
+    student = Student.objects.get(id=std_id)
+    st_ser = StudentSerializer(student, many=False)
+    return Response(st_ser.data)
+
+
 # Create your views here.
 
 def home(request):
@@ -47,6 +76,9 @@ def editStudent(request, std_id):
             
     context = {'form': form}
     return render(request, 'djapp/create.html', context)
+
+
+
 
 
 
