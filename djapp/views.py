@@ -53,8 +53,11 @@ def api_edit_student(request, std_id):
             st_ser.save()
             return redirect('api-all')
 
+@api_view(['DELETE'])
 def api_del_student(request, std_id):
-    
+    student = Student.objects.get(id=std_id)
+    student.delete()
+    return Response('Student deleted!')
 
 
 
