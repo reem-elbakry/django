@@ -20,11 +20,11 @@
         <form method="POST"> {% csrf_token %}
             <!-- as parameter to be block :() -->
             <!-- form obj put all student model fields in forms.py  -->
-            <div class="form-group m-5">
+            <!-- <div class="form-group m-5"> -->
                 {{form.as_p}} 
                 <button type="submit" class="btn btn-success">Submit</button>
                 <button type="reset" class="btn btn-warning">Reset</button>
-            </div>   
+            <!-- </div>    -->
         </form>
     </div>
     {% endblock %}

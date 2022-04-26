@@ -20,6 +20,9 @@
 
 
   {% block main_block %}
+  <div>
+    <a href="{% url 'delete' student.id %}">Delete</a>
+  </div>
     <div class="alert alert-success text-center m-5 p-5" role="alert">
       <div class="card m-auto" style="width: 18rem;">
           <div class="card-body">
