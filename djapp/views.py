@@ -34,6 +34,34 @@ def api_one_student(request, std_id):
     return Response(st_ser.data)
 
 
+@api_view(['POST'])
+def api_add_student(request):
+    st_ser = StudentSerializer(data=request.data)
+    if st_ser.is_valid():
+        st_ser.save()
+        return redirect('api-all')
+
+@api_view(['POST', 'GET'])
+def api_edit_student(request, std_id):
+    student = Student.objects.get(id=std_id)
+    if request.method == 'GET':
+        st_ser = StudentSerializer(student, many=False)
+        return Response(st_ser.data)
+    else:
+        st_ser = StudentSerializer(data=request.data, instance=student)
+        if st_ser.is_valid():
+            st_ser.save()
+            return redirect('api-all')
+
+def api_del_student(request, std_id):
+    
+
+
+
+
+
+
+
 # Create your views here.
 
 def home(request):

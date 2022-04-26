@@ -15,6 +15,10 @@ urlpatterns = [
     path('api-all/', views.api_all_student, name='api-all'),
     path('api-one/<std_id>', views.api_one_student, name='api-one'),
     path('api-add/', views.api_add_student, name='api-add'),
+    path('api-edit/<std_id>', views.api_edit_student, name='api-edit'),
+    path('api-del/<std_id>', views.api_del_student, name='api-del'),
+
+
 
 
 
